@@ -2,7 +2,9 @@ package com.proyecto.springboot.items;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
+@EnableFeignClients //Permite usar clientes Feign e inyectarlos
 @SpringBootApplication
 public class SpringbootServicioItemsApplication {
 
