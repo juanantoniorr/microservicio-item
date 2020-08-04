@@ -12,7 +12,6 @@ import com.proyecto.springboot.items.clientes.ProductoClienteRest;
 import com.proyecto.springboot.items.models.Item;
 
 @Service ("serviceFeign")
-@Primary
 public class ItemServiceFeignImpl implements ItemService {
 	private static final Logger log = LoggerFactory.getLogger(ItemServiceFeignImpl.class);
 	@Autowired
