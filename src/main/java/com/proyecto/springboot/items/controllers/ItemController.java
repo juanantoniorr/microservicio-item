@@ -26,6 +26,7 @@ public class ItemController {
 		
 	}
 	
+	//Con este comando si hay un fallo llamara al otro metodo
 	@HystrixCommand(fallbackMethod = "metodoAlternativo")
 	@GetMapping("/ver/{id}/cantidad/{cantidad}")
 	public Item detalle (@PathVariable Long id, @PathVariable Integer cantidad) {
