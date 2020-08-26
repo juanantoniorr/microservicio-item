@@ -28,8 +28,7 @@ public class ItemController {
 	@Autowired
 	@Qualifier("serviceFeign")
 	private ItemService itemService;
-	@Value("${configuracion.texto}")
-	private String texto;
+	
 	
 	@GetMapping("/listar")
 	public List <Item> listar(){
@@ -39,10 +38,11 @@ public class ItemController {
 	}
 	
 	@GetMapping("obtener-config")
-	public ResponseEntity<?> obtenerConfiguracion(@Value("${server.port}") String puerto) {
+	public ResponseEntity<?> obtenerConfiguracion(@Value("${server.port}") String puerto, @Value("${ambiente.info}") String texto) {
 		Map<String,String> json = new HashMap<>();
 		json.put("texto", texto);
 		json.put("puerto", puerto);
+		json.put("texto", texto);
 		if (env.getActiveProfiles().length>0 && env.getActiveProfiles()[0].equals("dev")) {
 			json.put("Autor", env.getProperty("autor.nombre"));
 		}
@@ -54,7 +54,6 @@ public class ItemController {
 	public Item detalle (@PathVariable Long id, @PathVariable Integer cantidad) {
 		return itemService.findById(id, cantidad);
 	}
-	
 	public Item metodoAlternativo(Long id, Integer cantidad) {
 		Item item = new Item();
 		Producto producto = new Producto();
