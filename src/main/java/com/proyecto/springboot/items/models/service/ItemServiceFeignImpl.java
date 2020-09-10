@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import com.proyecto.springboot.items.clientes.ProductoClienteRest;
 import com.proyecto.springboot.items.models.Item;
+import com.proyecto.springboot.items.models.Producto;
 
 @Service ("serviceFeign")
 public class ItemServiceFeignImpl implements ItemService {
@@ -28,6 +29,24 @@ public class ItemServiceFeignImpl implements ItemService {
 	public Item findById(Long id, Integer cantidad) {
 		
 		return new Item(clienteRest.detalle(id), cantidad);
+	}
+
+	@Override
+	public Producto save(Producto producto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Producto update(Producto producto, Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	
